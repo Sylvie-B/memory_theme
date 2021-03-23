@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>memory</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div id="container">
+        <div id="memo">
+            <h2 id="newTitle">Memory</h2>
+        </div>
+
+        <div id="display">
+            <div id="board">
+            <!--    in game cards container     -->
+            </div>
+            <div id="choice">
+                <div id="theme">
+                    <span>Choix du thème</span>
+                </div>
+
+                <div id="level">
+                    <label for="choiceN">choix du niveau</label>
+                    <input id="choiceN" type="number" min="2" max="10" value="3">
+                </div>
+            </div>
+
+        </div>
+
+        <div id="controls">
+            <button id="start">Start</button>
+            <button id="restart">Restart</button>
+        </div>
+
+    </div>
+    <div id="modalWin">
+        <div id="info">
+            <p>Vous avez gagné !</p>
+            <p id="score"></p>
+            <button id="end">Restart</button>
+        </div>
+    </div>
+
+    <script src="arrayTheme.js" type="module"></script>
+    <script src="modMem.js" type="module"></script>
+    <script src="memory.js" type="module"></script>
+</body>
+</html>
