@@ -1,6 +1,5 @@
 export {Theme};
 
-
 // theme object
 let Theme = function (arrayPict, arrayDeco){
 
@@ -17,46 +16,48 @@ let Theme = function (arrayPict, arrayDeco){
         }
     }
 
-    // set theme
-    this.setCards = function (verso, target){
-        // create a card
-        let card = document.createElement('div');
-        card.className = 'screen1';
-        card.style.display = "flex";
-
-        // affect a back image
-        let pict = document.createElement('img');
-        pict.src = verso;
-
-        // place in the screen
-        target.appendChild(card);
-        card.appendChild(pict);
-    }
-
-    // create arrMax
-    this.arrMax = function (){
-        let array = [];
-        for(let i = 0 ; i < this.array.length ; i++){
-            let count = array.push(i);
+    // create array for mix and display cards
+    this.setSelectCard = function (arrayPictures, choiceN, target){
+        let arrayOfNbr = [];
+        // for array length
+        for(let i = 0 ; i < arrayPictures.length ; i++){
+            // add 0 to length value
+            let size = arrayOfNbr.push(i);
         }
-        return array;
+        // shuffle the value
+        for (let j = 0; j < arrayOfNbr.length; j++) {
+            let r = Math.floor(Math.random() * j);
+            let stock = arrayOfNbr[j];
+            arrayOfNbr[j] = arrayOfNbr[r];
+            arrayOfNbr[r] = stock;
+        }
+        // select choiceN value
+        let selectPict = arrayOfNbr.splice(0, choiceN);
+        // shuffle
+        let dblSelect = selectPict.concat(selectPict);
+        for (let k = 0; k < dblSelect.length; k++) {
+            let r = Math.floor(Math.random() * k);
+            let stock = dblSelect[k];
+            dblSelect[k] = dblSelect[r];
+            dblSelect[r] = stock;
+        }
+        // display selected cards
+        for (let i = 0 ; i < dblSelect.length ; i++){
+            let game = document.createElement('div');
+            let recto = document.createElement('img');
+            recto.src = arrayPictures[dblSelect[i]]
+            game.appendChild(recto);
+            target.appendChild(recto);
+        }
     }
 
-    // add picture in themeView
-    this.setThemeArr = function (themeArr, choiceArr){
-        let global = themeArr.push(choiceArr);
-    }
-    // add picture in arrayPict
-    this.setPicture = function (arrayTheme, choiceTheme){
-        let global = arrayTheme.push(choiceTheme);
-    }
-
-    this.decor = function (background, target, id){
+    this.decor = function (background, target, title){
         // change the title
-        let newTitle = document.getElementById(id);
-        newTitle.innerHTML = this.name;
+        let newTitle = document.getElementById('newTitle');
+        newTitle.innerHTML = title;
         // change the background img
         let back = document.getElementById(target);
         back.style.backgroundImage = background;
     }
+
 }

@@ -24,7 +24,7 @@ export let pictures = [
         'theme/harryP/hippogriffe.png',
         'theme/harryP/malfoy.png',
         'theme/harryP/ronW.png',
-        'theme/harryP/volDeMort'
+        'theme/harryP/volDeMort.png'
     ],
 ];
 
