@@ -131,7 +131,4 @@ for ( let t = 0 ; t < userTheme.length ; t++){
     })
 }
 
-
-
-
 restart.addEventListener("click",()=> document.location.reload());
