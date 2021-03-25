@@ -10,6 +10,8 @@ choice.style.height = innerHeight * 0.7 + 'px';
 
 // get target for backcards
 let theme = document.getElementById('theme');
+
+/** set first screen */
 allTheme.setScreen(theme, decorTheme);
 
 // setting end game modal window
@@ -31,14 +33,16 @@ container.style.height = window.innerHeight + 'px';
 let board = document.getElementById('board');
 board.style.height = innerHeight * 0.9 + 'px';
 
-// get start & restart buttton
+// get start & restart button
 let start = document.getElementById('start');
 let restart = document.getElementById('restart');
 
 /** listen theme choice **/
-let userTheme = document.getElementsByClassName('choiceTheme');
+let userTheme = document.getElementsByClassName('themes');
+
 for ( let t = 0 ; t < userTheme.length ; t++){
     userTheme[t].addEventListener('click', function (){
+        userTheme[t].style.border = '2px yellow solid';
 
         /** listen start button **/
         start.addEventListener('click', function () {
@@ -52,24 +56,42 @@ for ( let t = 0 ; t < userTheme.length ; t++){
                 start.style.display = 'none';
                 restart.style.display = 'block';
 
-                //  hidden choices screen
+                //  hidden choices screen and show game screen
                 choice.style.display = 'none';
-                // no hidden game screen
                 board.style.display = 'flex';
 
                 /** game screen */
                 allTheme.decor(decorTheme[t][2], 'container', decorTheme[t][1]);
 
                 /** display cards */
-                allTheme.setSelectCard(pictures[t], choiceN, board);
+                allTheme.setSelectCard(pictures[t], choiceN, board, t);
 
-                /**  listen cards   */
-                    // get cards
+                /** adapt img width in function of choiceN **/
+                let refSize;
+
+                if(innerWidth < 351){
+                    refSize = choiceN < 5 ? 26 : choiceN < 7 ? 24 : 18;
+                }
+                else if(innerWidth < 601){
+                    refSize = choiceN < 4 ? 28 : choiceN < 5 ? 26 : choiceN < 7 ? 22 : choiceN < 9 ? 19 : 17;
+                }
+                else{
+                    refSize = choiceN < 7 ? 14 : choiceN < 8 ? 11 : choiceN < 9 ? 10 : 9;
+                }
+
+                let allImg = document.getElementsByTagName("img");
+                for (let i = 0 ; i < allImg.length ; i++){
+                    allImg[i].style.width = refSize + 'vw';
+                }
+
+                let recto = document.getElementsByClassName('recto');
                 let verso = document.getElementsByClassName('verso');
                 let score = document.getElementById('score');
                 let stock;
                 let count = 0;
                 let test = 0;
+
+                /**  listen cards   */
                 for (let i = 0; i < verso.length; i++) {
                     verso[i].addEventListener('mouseup', function () {
                         // when click on verso
@@ -83,7 +105,7 @@ for ( let t = 0 ; t < userTheme.length ; t++){
                                 case 1 :
                                     verso[i].style.display = 'none';            // hidden verso
                                     test --;
-                                    if(dblArr[i] !== dblArr[stock]){
+                                    if(recto[i].src !== recto[stock].src){
                                         setTimeout(function (){
                                             verso[stock].style.display = 'unset';
                                             verso[i].style.display = 'unset';
@@ -94,7 +116,7 @@ for ( let t = 0 ; t < userTheme.length ; t++){
                                         if(count === choiceN){
                                             // modal window
                                             modalWin.style.display = 'flex';
-                                            info.style.backgroundImage = themeView[x][3];
+                                            info.style.backgroundImage = decorTheme[t][3];
                                             info.style.backgroundSize = 'cover';
                                             score.innerHTML = 'votre score est de ' + count * 2;
                                             end.addEventListener('click', function (){

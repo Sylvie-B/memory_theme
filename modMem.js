@@ -8,16 +8,17 @@ let Theme = function (arrayPict, arrayDeco){
         // add back card image
         for (let i = 0 ; i < arrayDeco.length ; i++){
             let frame = document.createElement('div');
-            frame.className = 'choiceTheme';
+            frame.className = 'themes';
             let backCard = document.createElement('img');
             backCard.src = arrayDeco[i][0];
+            backCard.style.margin = "2px";
             frame.appendChild(backCard);
             target.appendChild(frame);
         }
     }
 
     // create array for mix and display cards
-    this.setSelectCard = function (arrayPictures, choiceN, target){
+    this.setSelectCard = function (arrayPictures, choiceN, target, t){
         let arrayOfNbr = [];
         // for array length
         for(let i = 0 ; i < arrayPictures.length ; i++){
@@ -43,11 +44,25 @@ let Theme = function (arrayPict, arrayDeco){
         }
         // display selected cards
         for (let i = 0 ; i < dblSelect.length ; i++){
-            let game = document.createElement('div');
+            let cards = document.createElement('div');
+            cards.style.position = 'relative';
+
             let recto = document.createElement('img');
-            recto.src = arrayPictures[dblSelect[i]]
-            game.appendChild(recto);
-            target.appendChild(recto);
+            recto.src = arrayPictures[dblSelect[i]];
+            recto.className = 'recto';
+
+            let verso = document.createElement('img');
+            verso.src = arrayDeco[t][0];
+            verso.className = 'verso';
+            verso.style.position = 'absolute';
+            verso.style.top = '0';
+            verso.style.left = '0';
+
+            // div card in board
+            target.appendChild(cards);
+            // img recto & verso in card
+            cards.appendChild(recto);
+            cards.appendChild(verso);
         }
     }
 

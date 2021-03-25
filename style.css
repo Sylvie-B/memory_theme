@@ -14,7 +14,7 @@ body {
 }
 
 div {
-    border: 1px yellow dashed;
+    border: 1px red dashed;
 }
 
 #container {
@@ -27,7 +27,7 @@ div {
     background-repeat: no-repeat;
 }
 
-#memo, #controls {
+#title, #controls {
     background: black;
     color: white;
     text-align: center;
@@ -40,8 +40,8 @@ div {
 #board {
     display: none;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #choice {
@@ -51,10 +51,10 @@ div {
 }
 
 #theme {
-    padding: 1vh 1vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
 }
 
 #controls {
@@ -64,25 +64,17 @@ div {
     justify-content: center;
 }
 
-#backCards img {
-    width: 15vw;
-}
-
 #board img {
-    margin: 1vh 1vw;
     justify-content: center;
 }
 
 button, input, #choiceT, #choice {
-    margin: 0.5vw;
-    padding: 2px;
     font-size: 2vw;
 }
 
 #restart {
     display: none;
 }
-
 
 #modalWin {
     position: absolute;
