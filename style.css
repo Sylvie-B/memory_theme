@@ -13,10 +13,6 @@ body {
     width: 100%;
 }
 
-div {
-    border: 1px red dashed;
-}
-
 #container {
     display: flex;
     flex-direction: column;
@@ -33,6 +29,16 @@ div {
     text-align: center;
 }
 
+.screen1{
+    text-align: center;
+}
+
+.screen1 p {
+    width: 45%;
+    margin: auto;
+    font-size: 1.5vw;
+}
+
 #newTitle {
     font-size: 3vw;
 }
@@ -47,7 +53,7 @@ div {
 #choice {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #theme {
