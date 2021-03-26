@@ -15,6 +15,7 @@ body {
 
 #container {
     color: white;
+    text-shadow: 2px 2px black;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
