@@ -14,19 +14,22 @@ body {
 }
 
 #container {
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: darkcyan;
-/*  setting new screen  */
+    background-image: url("./theme/first-screen.jpg");
     background-size: cover;
-    background-repeat: no-repeat;
+
 }
 
 #title, #controls {
     background: black;
-    color: white;
     text-align: center;
+}
+
+#display {
+
 }
 
 .screen1{
@@ -99,7 +102,7 @@ button, input, #choiceT, #choice {
     align-items: center;
     font-size: 3vw;
     font-weight: bold;
-    color: orangered;
+    text-shadow: 2px 2px white;
 }
 
 @media screen and (max-width: 800px) {

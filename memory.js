@@ -22,7 +22,7 @@ modalWin.style.display = 'none';
 
 let info = document.getElementById('info');
 info.style.width = innerWidth/2 + 'px';
-info.style.height = innerHeight/2 + 'px';
+info.style.height = innerHeight/1.5 + 'px';
 
 let end = document.getElementById('end');
 

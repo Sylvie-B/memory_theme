@@ -32,7 +32,7 @@ export let pictures = [
 export let decorTheme = [
     // decor
     [
-        'theme/lordOfRings/jrrT.png',
+        'theme/lordOfRings/lotr01.png',
         'Lord of memory',
         'url("theme/lordOfRings/middleEarth.jpg")',
         'url("theme/lordOfRings/oneRing.jpg")',
