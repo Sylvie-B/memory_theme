@@ -26,6 +26,18 @@ export let pictures = [
         'theme/harryP/ronW.png',
         'theme/harryP/volDeMort.png'
     ],
+    [
+        'theme/pirate/barbosa.jpg',
+        'theme/pirate/blackPearl.jpg',
+        'theme/pirate/calypso.jpg',
+        'theme/pirate/commodor.jpg',
+        'theme/pirate/dog.jpg',
+        'theme/pirate/gibbs.jpg',
+        'theme/pirate/governor.jpg',
+        'theme/pirate/jackS.jpg',
+        'theme/pirate/swannE.jpg',
+        'theme/pirate/willT.jpg',
+    ],
 ];
 
 // deco : back card, title, background image, end image
@@ -43,4 +55,11 @@ export let decorTheme = [
         'url("theme/harryP/quidditch.jpg")',
         'url("theme/harryP/coupe.jpg")',
     ],
+    [
+        'theme/pirate/skull.png',
+        'pirate of the memory',
+        'url("theme/pirate/carte.jpg")',
+        'url("theme/pirate/vigie.jpg")',
+    ],
 ];
+
