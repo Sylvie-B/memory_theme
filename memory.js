@@ -18,12 +18,20 @@ allTheme.setScreen(theme, decorTheme);
 let modalWin = document.getElementById('modalWin');
 modalWin.style.width = innerWidth + 'px';
 modalWin.style.height = innerHeight + 'px';
-modalWin.style.display = 'none';
 
 let info = document.getElementById('info');
 info.style.width = innerWidth/2 + 'px';
 info.style.height = innerHeight/1.5 + 'px';
+/** adap modal window to the screen */
+if(innerWidth < 600 ){
+    info.style.width = innerWidth * 0.8 + 'px';
+    info.style.height = innerHeight/2 + 'px';
+}
 
+
+// in game restart button
+let restart = document.getElementById('restart');
+// end restart button
 let end = document.getElementById('end');
 
 // get window
@@ -33,8 +41,7 @@ container.style.height = window.innerHeight + 'px';
 let board = document.getElementById('board');
 board.style.height = innerHeight * 0.9 + 'px';
 
-// get start & restart button
-let restart = document.getElementById('restart');
+
 
 /** listen theme choice **/
 let userTheme = document.getElementsByClassName('themes');
@@ -66,21 +73,22 @@ for ( let t = 0 ; t < userTheme.length ; t++){
 
             if(innerWidth < 351){
                 refSize = choiceN < 5 ? 26 : choiceN < 7 ? 24 : 18;
+
             }
             else if(innerWidth < 601){
-                refSize = choiceN < 4 ? 28 : choiceN < 5 ? 26 : choiceN < 7 ? 22 : choiceN < 9 ? 19 : 17;
+                refSize = choiceN < 4 ? 29 : choiceN < 5 ? 28 : choiceN < 7 ? 22 : choiceN < 9 ? 19 : 17;
             }
             else{
                 refSize = choiceN < 7 ? 14 : choiceN < 8 ? 11 : choiceN < 9 ? 10 : 9;
             }
 
-            let allImg = document.getElementsByTagName("img");
-            for (let i = 0 ; i < allImg.length ; i++){
-                allImg[i].style.width = refSize + 'vw';
-            }
-
             let recto = document.getElementsByClassName('recto');
             let verso = document.getElementsByClassName('verso');
+            for (let i = 0 ; i < recto.length ; i++){
+                recto[i].style.width = refSize + 'vw';
+                verso[i].style.width = refSize + 'vw';
+            }
+
             let score = document.getElementById('score');
             let stock;
             let count = 0;
@@ -112,7 +120,6 @@ for ( let t = 0 ; t < userTheme.length ; t++){
                                         // modal window
                                         modalWin.style.display = 'flex';
                                         info.style.backgroundImage = decorTheme[t][3];
-                                        info.style.backgroundSize = 'cover';
                                         score.innerHTML = 'votre score est de ' + count * 2;
                                         end.addEventListener('click', function (){
                                             document.location.reload();

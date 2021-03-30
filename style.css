@@ -5,7 +5,6 @@
 }
 
 html {
-    font-size: 62.5%;
     font-family: sans-serif;
 }
 
@@ -21,16 +20,11 @@ body {
     justify-content: space-between;
     background-image: url("./theme/first-screen.jpg");
     background-size: cover;
-
 }
 
 #title, #controls {
     background: black;
     text-align: center;
-}
-
-#display {
-
 }
 
 .screen1{
@@ -40,7 +34,7 @@ body {
 .screen1 p {
     width: 45%;
     margin: auto;
-    font-size: 1.5vw;
+    font-size: 3vw;
 }
 
 #newTitle {
@@ -78,8 +72,8 @@ body {
     justify-content: center;
 }
 
-button, input, #choiceT, #choice {
-    font-size: 2vw;
+button, input, #choice {
+    font-size: 3vw;
 }
 
 #restart {
@@ -87,11 +81,11 @@ button, input, #choiceT, #choice {
 }
 
 #modalWin {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
     background: rgba(173, 216, 230, .5);
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -104,6 +98,8 @@ button, input, #choiceT, #choice {
     font-size: 3vw;
     font-weight: bold;
     text-shadow: 2px 2px white;
+    background-size: cover;
+    background-position: center;
 }
 
 @media screen and (max-width: 800px) {
@@ -112,36 +108,42 @@ button, input, #choiceT, #choice {
         font-size: 6vw;
     }
 /*screen game */
-    #board {
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-    }
     #theme img {
         width: 20vw;
     }
     #choice {
         font-size: 3vw;
     }
+    input {
+        font-size: 3vw;
+    }
 }
 
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 601px) {
     /*screen 1*/
     #newTitle {
         font-size: 6vw;
     }
     /*screen game */
-    #board {
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-    }
     #theme img {
         width: 25vw;
     }
     #choice {
         font-size: 4vw;
     }
+    input {
+        font-size: 4vw;
+    }
 }
 
+@media screen and (max-width: 401px) {
+    input {
+        font-size: 5vw;
+    }
+    #theme {
+        flex-direction: column;
+    }
+    #theme img {
+        width: 35vw;
+    }
+}
